@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid, Pagination } from "@mui/material";
+import React from "react";
+import JobCard from "./components/JobCard";
+import SearchAppBar from "./components/SearchAppBar";
+import jobs from "./jobs.json";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SearchAppBar />
+
+      <Grid container spacing={2} sx={{ mt: 1 }}>
+        {jobs.map((job) => (
+          <Grid item xs={9} md={3} lg={4}>
+            <JobCard job={job} />
+          </Grid>
+        ))}
+      </Grid>
+      <Pagination sx={{}} />
+    </>
   );
 }
 
 export default App;
+//  //App Bar
+// Box
+// Button
+// Chip
+// Divider
+// Paper
+// CssBaseline
