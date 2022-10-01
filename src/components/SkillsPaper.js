@@ -21,7 +21,6 @@ function SkillsPaper({ skills }) {
         <Chip
           key={skill}
           size="small"
-          // color="white"
           label={skill}
           sx={{ paddingBottom: "2px", backgroundColor: "#d74742" }}
         />

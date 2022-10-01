@@ -3,19 +3,16 @@ import React from "react";
 import JobCard from "./components/JobCard";
 import PaginationControlled from "./components/Pagination";
 import SearchAppBar from "./components/SearchAppBar";
-import SkillsPaper from "./components/SkillsPaper";
 import jobs from "./jobs.json";
 
 function App() {
   return (
     <div style={{ backgroundColor: "#121212" }}>
       <SearchAppBar />
-
       <Grid container spacing={2} sx={{ mt: 1 }}>
         {jobs.slice(0, 5).map((job) => (
           <Grid item xs={9} md={3} lg={4}>
             <JobCard job={job} />
-            {/* <SkillsPaper skills={job.skills} /> */}
           </Grid>
         ))}
       </Grid>
@@ -28,10 +25,3 @@ function App() {
 }
 
 export default App;
-//  //App Bar
-// Box
-// Button
-// Chip
-// Divider
-// Paper
-// CssBaseline
