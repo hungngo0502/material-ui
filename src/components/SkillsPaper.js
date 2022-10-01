@@ -13,7 +13,7 @@ function SkillsPaper({ skills }) {
         p: 0.5,
         m: 0,
         boxShadow: 0,
-        backgroundColor: (theme) => theme.palette.primary.light,
+        backgroundColor: "#353535",
       }}
       component="ul"
     >
@@ -21,9 +21,9 @@ function SkillsPaper({ skills }) {
         <Chip
           key={skill}
           size="small"
-          color="primary"
+          // color="white"
           label={skill}
-          sx={{ paddingBottom: "2px", backgroundColor: "#df4747" }}
+          sx={{ paddingBottom: "2px", backgroundColor: "#d74742" }}
         />
       ))}
     </Paper>

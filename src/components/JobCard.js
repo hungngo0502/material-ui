@@ -15,10 +15,11 @@ const CardStyle = styled(Card)(({ theme }) => ({
   minWidth: "270px",
   height: "320px",
   margin: "auto",
-  backgroundColor: theme.palette.primary.light,
+  backgroundColor: "#353535",
 }));
 
-function JobCard({ job, skills }) {
+function JobCard({ job }) {
+  const skills = job.skills;
   return (
     <CardStyle ariant="outlined">
       <Stack
@@ -33,23 +34,23 @@ function JobCard({ job, skills }) {
             gutterBottom
             variant="h5"
             component="div"
-            sx={{ color: (theme) => theme.palette.common.white }}
+            sx={{ color: "white" }}
           >
             {job.title}
           </Typography>
-          <Divider />
+          <Divider sx={{ color: "#353535" }} />
           <SkillsPaper skills={skills} />
           <Typography
             variant="body2"
             color="text.secondary"
-            sx={{ color: (theme) => theme.palette.common.white }}
+            sx={{ color: "white" }}
           >
             {job.description}
           </Typography>
         </CardContent>
         <Button
           variant="contained"
-          sx={{ width: "130px", backgroundColor: "#df9e0b" }}
+          sx={{ width: "130px", backgroundColor: "#ffa726", bottom: "20px" }}
         >
           Learn More
         </Button>
