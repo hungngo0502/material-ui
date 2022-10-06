@@ -1,10 +1,8 @@
 import React from "react";
-import { Grid, InputBase } from "@mui/material";
+import { InputBase } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSearchParams } from "react-router-dom";
-import jobs from "../jobs.json";
-import JobCard from "./JobCard";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

@@ -11,9 +11,8 @@ function CardGrid() {
   let currentJobs = jobs.slice(skip, page * limit); // page === 1
   // let currentJobs = jobs.slice(5, 10); // page === 2
   // let currentJobs = jobs.slice(10, 15); // page === 3
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
   let filter = searchParams.get("filter");
-
   const handleChange = (event, value) => {
     setPage(value);
   };
