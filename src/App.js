@@ -3,7 +3,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import JobDetailPage from "./pages/JobDetailPage";
 import LoginPage from "./pages/LoginPage";
@@ -26,12 +26,14 @@ const theme = {
 };
 
 function App() {
-  let location = useLocation();
-  let state = location.state;
+  // const location = useLocation();
+  // const state = location.state;
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   return (
+    //ThemeProvider bọc lấy toàn bộ code
     <ThemeProvider theme={prefersDarkMode ? theme.dark : theme.default}>
+      {/* CssBaseline: đặt lại code css về một dạng nhất quán, và có thể định dạng lại html */}
       <CssBaseline />
       <Routes>
         <Route path="/" element={<HomePage />} />
