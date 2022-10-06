@@ -1,62 +1,82 @@
+import * as React from "react";
 import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import Divider from "@mui/material/Divider";
-import SkillsPaper from "./SkillsPaper";
-import { styled } from "@mui/material/styles";
+import { Chip, Stack, Divider } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
-const CardStyle = styled(Card)(({ theme }) => ({
-  boxShadow: "none",
-  border: "1px solid black",
-  width: "100%",
-  maxWidth: "350px",
-  minWidth: "270px",
-  height: "320px",
-  margin: "auto",
-  backgroundColor: "#353535",
-}));
-
-function JobCard({ job }) {
-  const skills = job.skills;
+export default function JobCard({ job }) {
+  let location = useLocation();
   return (
-    <CardStyle ariant="outlined">
-      <Stack
-        direction="column"
-        justifyContent="space-between"
-        alignItems="center"
-        height="100%"
-        padding="5px"
-      >
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            sx={{ color: "white" }}
-          >
-            {job.title}
-          </Typography>
-          <Divider sx={{ color: "#353535" }} />
-          <SkillsPaper skills={skills} />
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ color: "white" }}
-          >
-            {job.description}
-          </Typography>
-        </CardContent>
+    <Card
+      variant="contained"
+      style={{ backgroundColor: "#212121" }}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+      }}
+    >
+      <CardContent>
+        <Typography
+          sx={{ height: 45 }}
+          color="text.secondary"
+          display={"flex"}
+          textAlign="center"
+          alignItems={"center"}
+          justifyContent="center"
+          textOverflow={"ellipsis"}
+          gutterBottom
+        >
+          {job.title}
+        </Typography>
+        <Divider />
+        <Stack
+          direction="row"
+          spacing={0.5}
+          marginTop={1}
+          marginBottom={1}
+          sx={{ maxHeight: 25, width: "100%" }}
+          overflow="hidden"
+        >
+          {job.skills.map((i) => (
+            <Chip
+              key={i}
+              label={i}
+              style={{ backgroundColor: "#d74742", fontSize: "0.5rem" }}
+              size="small"
+            />
+          ))}
+        </Stack>
+        <Typography
+          // color="text.secondary"
+          variant="body2"
+          height={110}
+          style={{ display: "inline-block" }}
+          paddingTop={1}
+        >
+          {job.description}
+        </Typography>
+      </CardContent>
+      <CardActions style={{ justifyContent: "center", padding: "15px" }}>
         <Button
+          size="small"
           variant="contained"
-          sx={{ width: "130px", backgroundColor: "#ffa726", bottom: "20px" }}
+          style={{
+            fontWeight: "540",
+            backgroundColor: "#ffa726",
+            textAlign: "center",
+            justifyContent: "center",
+          }}
+          component={Link}
+          to={`/jobs/${job.id}`}
+          state={{ backgroundLocation: location }}
         >
           Learn More
         </Button>
-      </Stack>
-    </CardStyle>
+      </CardActions>
+    </Card>
   );
 }
-
-export default JobCard;
